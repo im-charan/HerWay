@@ -1,9 +1,10 @@
 import {React, useState, useEffect} from 'react';
 import MapView , {Marker} from 'react-native-maps';
-import { StyleSheet, View ,Text , Dimensions,Button} from 'react-native';
+import { StyleSheet, View ,Text , Dimensions,Button,TextInput} from 'react-native';
 import * as Location from 'expo-location'
 import { StatusBar } from 'expo-status-bar';
-import LoginScreen from './(screen)/(login)/loginScreen';
+// import LoginScreen from './(screen)/(login)/loginScreen';
+import CustomNavigator from './components/navBar';
 
 export default function App() {
 
@@ -38,13 +39,31 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <MapView style={styles.map} 
+      {/* <MapView style={styles.map} 
       region={mapRegion}
       >
         <Marker coordinate={mapRegion} title='Marker'/>
       </MapView>
-      <Button title='Get Location' onPress={userLocation}/>
+      <View style={{ position: 'absolute', top: 10, width: '100%' }}>
+    <TextInput
+      style={{
+        borderRadius: 10,
+        margin: 10,
+        color: '#000',
+        borderColor: '#666',
+        backgroundColor: '#FFF',
+        borderWidth: 1,
+        height: 45,
+        paddingHorizontal: 10,
+        fontSize: 18,
+      }}
+      placeholder={'Search'}
+      placeholderTextColor={'#666'}
+    />
+  </View> */}
+      {/* <Button title='Get Location' onPress={userLocation}/> */}
       <StatusBar style='auto'/>
+      <CustomNavigator/>
     </View>
 
     // <View>
@@ -56,11 +75,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop : 25
+    flex: 1
   },
   map : {
-    height : '95%',
+    height : '90%',
     width : '100%'
   }
 });
