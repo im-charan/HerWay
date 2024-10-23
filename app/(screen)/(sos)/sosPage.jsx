@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const AlarmPage = () => {
+const SosPage = () => {
   return (
     <View>
-      <Text>alarmPage</Text>
+      <Text>SoSPage</Text>
     </View>
   )
 }
 
-export default AlarmPage;
+export default SosPage;

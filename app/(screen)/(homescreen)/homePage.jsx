@@ -8,19 +8,28 @@ import { StatusBar } from 'expo-status-bar';
 export default function HomePage() {
 
   const [mapRegion ,setMapRegion] = useState({
-    latitude : 13.08784000,
-    longitude : 80.27847000,
+    latitude : 13.139676,
+    longitude : 80.1347686,
     longitudeDelta : 0.0421,
     latitudeDelta : 0.0922
   })
 
   const userLocation = async () => {
     let status = await Location.requestForegroundPermissionsAsync();
+    let location = await Location.getCurrentPositionAsync({});
     if (status !== 'granted'){
       console.log('Permission to access location was denied');
+      setMapRegion({
+        latitude : 13.139676,
+        longitude : 80.1347686,
+        longitudeDelta : 0.0421,
+        latitudeDelta : 0.0922
+      });
+    }
+    else{
+      
     }
 
-    let location = await Location.getCurrentPositionAsync({});
     setMapRegion({
       latitude : location.coords.latitude,
       longitude : location.coords.longitude,
@@ -38,7 +47,8 @@ export default function HomePage() {
   return (
     <View style={styles.container}>
 
-      <MapView style={styles.map} 
+      <MapView 
+      style={styles.map} 
       region={mapRegion}
       >
         <Marker coordinate={mapRegion} title='Marker'/>

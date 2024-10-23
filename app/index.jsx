@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   map : {
-    height : '90%',
+    height : '100%',
     width : '100%'
   }
 });
