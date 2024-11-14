@@ -3,7 +3,7 @@ import MapView , {Marker} from 'react-native-maps';
 import { StyleSheet, View ,Text , Dimensions,Button,TextInput} from 'react-native';
 import * as Location from 'expo-location'
 import { StatusBar } from 'expo-status-bar';
-// import LoginScreen from './(screen)/(login)/loginScreen';
+import currLoc from '../../assets/img/current-location.jpg'
 
 export default function HomePage() {
 
@@ -51,7 +51,8 @@ export default function HomePage() {
       style={styles.map} 
       region={mapRegion}
       >
-        <Marker coordinate={mapRegion} title='Marker'/>
+        <Marker coordinate={mapRegion} title='Marker' pinColor='yellow'>
+        </Marker>
       </MapView>
       <View style={{ position: 'absolute', top: 10, width: '100%' }}>
     <TextInput
